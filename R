@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title> <!-- Titel vil blive sat dynamisk i JavaScript -->
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+        #spørgsmål { display: none; margin-top: 20px; }
+        img { max-width: 200px; margin-bottom: 20px; } /* Tilpas logoets størrelse */
+    </style>
+</head>
+<body>
+
+    <!-- Logo tilføjet her -->
+    <img src="Logo2021_v2.jpg" alt="Logo">
+
+    <h1 id="pageHeading"></h1> <!-- Overskrift sættes dynamisk -->
+    <h1>Indtast koden for at se spørgsmålet</h1>
+    <input type="password" id="kode" placeholder="Indtast kode her" />
+    <button onclick="checkKode()">Lås op</button>
+
+    <div id="spørgsmål">
+        <h2>Spørgsmål:</h2>
+        <p id="sporgsmal"></p> <!-- Her placeres spørgsmålet dynamisk -->
+    </div>
+
+    <script>
+        // Globale variabler
+        var feltTitle = "Spillefelt 6";
+        var kodeTitle = "1441";
+        var sporgsmal = "Hvad har Albert Einstein og Bruce Willis tilfælles?";
+
+        // Sætter titlen og overskriften
+        document.title = feltTitle; // Opdaterer sidetitlen i stedet for at bruge id på <title>
+        document.getElementById("pageHeading").innerText = feltTitle; // Opdaterer overskriften
+        document.getElementById("sporgsmal").innerText = sporgsmal; // Opdaterer spørgsmålet
+
+        function checkKode() {
+            var kode = document.getElementById("kode").value;
+            if (kode === kodeTitle) { // Sammenligner brugerkoden med den rigtige kode
+                document.getElementById("spørgsmål").style.display = "block";
+            } else {
+                alert("Forkert kode! Prøv igen.");
+            }
+        }
+    </script>
+
+</body>
+</html>
