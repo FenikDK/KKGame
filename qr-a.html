@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle"></title> <!-- Titel sættes dynamisk -->
+    <title></title> <!-- Titel vil blive sat dynamisk i JavaScript -->
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
         #spørgsmål { display: none; margin-top: 20px; }
@@ -22,24 +22,23 @@
 
     <div id="spørgsmål">
         <h2>Spørgsmål:</h2>
-        <p>id="sporgsmal"</p>
+        <p id="sporgsmal"></p> <!-- Her placeres spørgsmålet dynamisk -->
     </div>
 
     <script>
-        // Global variabel-----------------------------------------------------------------------------------------------------------
+        // Globale variabler
         var feltTitle = "Spillefelt 2";
         var kodeTitle = "1234";
         var sporgsmal = "Hvad er hovedstaden i Danmark?";
-        // ----------------------------------------------------------------------------------------------------------------
 
         // Sætter titlen og overskriften
-        document.getElementById("pageTitle").innerText = feltTitle;
-        document.getElementById("pageHeading").innerText = feltTitle;
-        document.getElementById("pageKode").innerText = kodeTitle;
+        document.title = feltTitle; // Opdaterer sidetitlen i stedet for at bruge id på <title>
+        document.getElementById("pageHeading").innerText = feltTitle; // Opdaterer overskriften
+        document.getElementById("sporgsmal").innerText = sporgsmal; // Opdaterer spørgsmålet
 
         function checkKode() {
             var kode = document.getElementById("kode").value;
-            if (kode === id="pageKode") {
+            if (kode === kodeTitle) { // Sammenligner brugerkoden med den rigtige kode
                 document.getElementById("spørgsmål").style.display = "block";
             } else {
                 alert("Forkert kode! Prøv igen.");
